@@ -1,0 +1,12 @@
+- url: '{protocol}://api.hithinh.com/{version}'
+  description: Base URL (Dev Server) for App.
+  variables:
+    version:
+      enum: 
+        - v1
+      default: v1
+    protocol:
+      enum:
+        - https
+        - http
+      default: https

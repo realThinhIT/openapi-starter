@@ -1,0 +1,34 @@
+/auth:
+  post:
+    security:
+      - apiKeyAuth: []
+    summary: Login and Retrieve Access Token
+    description: Login into the system and retrieve a valid access token in order to authenticate other requests.
+    tags: 
+      - Authentication
+    requestBody:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: './schemas.yaml#/LoginUserReq'
+                      
+    responses:
+      200: 
+        description: Login successfully.
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './schemas.yaml#/JWTResponse'
+                        
+      401:
+        description: Bad request. Missing fields or invalid credentials.
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: './schemas.yaml#/JWTErrorResponse'
+
+      500:
+        description: Server error.

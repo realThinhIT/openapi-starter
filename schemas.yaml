@@ -1,0 +1,73 @@
+LoginUserReq:
+  type: object
+  properties:
+    username:
+      type: string
+      example: thinhnd
+    password:
+      type: string
+      example: 12345678
+
+JWTResponse:
+  type: object
+  properties:
+    access_token:
+      type: string
+      example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWRlbnRpdHkiOjEsImlhdCI6MTUxNjIzOTAyMn0.5vrxKsP1JKpiLS6LjP_-4KB_70qCjZXy1wPt-4QDgdc
+
+JWTErrorResponse:
+  type: object
+  properties:
+    description:
+      type: string
+      example: Invalid credentials
+    error:
+      type: string
+      example: Bad Request
+    status_code:
+      type: integer
+      example: 401
+
+ApiResponse:
+  type: object
+  properties: 
+    success:
+      type: integer
+      enum: [0, 1]
+      default: 1
+    message:
+      type: string
+    data:
+      schema:
+        type:
+          oneOf:
+            - object
+            - array
+    additionalData:
+      type: object
+      
+ApiErrorResponse:
+  type: object
+  properties:
+    status: 
+      type: integer
+      default: 0
+    message:
+      type: string
+      default: Sample error message.
+
+ApiResponsePagination:
+  type: object
+  properties:
+    skip:
+      type: integer
+      default: 0
+      example: 0
+    limit:
+      type: integer
+      default: 100
+      example: 100
+    totalItems:
+      type: integer
+      description: Amount of items in the collection.
+      example: 50

@@ -1,0 +1,26 @@
+openapi: "3.0.0"
+
+info:
+  $ref: ./info.yaml
+
+servers:
+  $ref: ./servers.yaml
+
+components: 
+  securitySchemes:
+    $ref: ./securitySchemes.yaml
+
+  schemas:
+    $ref: ./schemas.yaml
+
+  parameters:
+    $ref: ./parameters.yaml
+
+tags:
+  $ref: ./tags.yaml
+
+security:
+  $ref: ./security.yaml
+  
+paths:
+  $ref: ./paths.yaml
